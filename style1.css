@@ -1,0 +1,354 @@
+/* PAGINA MINION ↓ */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: rgb(215, 231, 237) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Que la altura ocupa toda la pantalla↓↓ */
+    height: 100vh; 
+}
+.minion{
+    background-color:#bfbdbd ;
+    position: relative;
+    top: 10vmin;
+}
+.body{  
+    width: 50vmin;
+    height: 70vmin;
+    background-color: #f3bc54;
+    /* Para el border-radius uso la pagina:-> 8 POINT FULL CONTROL ↓*/
+    border-radius: 50% 50% 48% 48% / 38% 38% 28% 28% ;
+    position: relative;
+    /* Si alguno de los div hijos sale del cuerpo, los va a
+    restringir de tal forma que al borde que sobresale lo oculte
+    (parte de pantalones) */
+    overflow: hidden;
+}
+.outfit{
+    background-color: #436884;
+    width: 50vmin;
+    height: 20vmin;
+    border-radius: 0 0 49% 49% / 10% 10% 45% 45% ;
+    /* lo posicionamos con respecto al cuerpo (pisition absoluto)
+    entonces al div"body" le damos position:relative↓*/
+    position: absolute;
+    bottom: 0;
+}
+.outfit-top{
+    width: 30vmin;
+    height: 20vmin;
+    background-color: #436884;
+    position: absolute;
+    bottom: 8vmin;
+    left: 10vmin;
+}
+.strap-left, .strap-right{
+    width: 4vmin;
+    height: 25vmin;
+    background-color: #436884;
+    position:absolute;
+    top: 24vmin;
+}
+.strap-left{
+    left: 3vmin;
+    /* PARA ROTAR LAS CORREAS ↓ */
+    transform: rotateZ(-50deg);
+    
+}
+.strap-right{
+    right: 3vmin;
+     /* PARA ROTAR LAS CORREAS ↓ */
+     transform: rotateZ(50deg);
+}
+
+.left-eye-outer, .right-eye-outer{
+    background-color: #919191;
+    position: absolute;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 50%;
+    top: 10vmin;
+    /* Debo darle "flex,justify y align" para que los 
+    div hijos puedan acomodarse↓↓ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-eye-outer{
+    left: 5vmin;
+}
+.right-eye-outer{
+    right: 5vmin;
+}
+
+.white-eye{
+    width: 14vmin;
+    height: 14vmin;
+    background-color: #fff;
+    border-radius: 50%;
+    /* para centrar el div hijo "brown-eye-outer"
+    le colocamos display,justify,align ↓*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brown-eye-outer{
+    background-color: #a86d4c;
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50%;
+    /* el exterior del ojo marron debe ser en el 
+    centro de este div "white eye" entonces debemos ir a
+    colocarle display:flex,justify, align al div "white eye"*/
+    border: 0.4vmin solid #39322e;
+    /* para centrar el div hijo "dark-eye"
+    le colocamos display,justify,align ↓*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-eye{
+    background-color: #603d29;
+    width: 2.5vmin;
+    height: 2.5vmin;
+    border-radius: 50%;
+}
+
+.left-eye-anteojo, .right-eye-anteojo{
+    background-color: #000;
+    width: 8vmin;
+    height: 5vmin;
+    /* debemos ubicarlos entonces usamos la
+     positio=absolute ya que nuestro body tiene la relativa
+     es decir podemos posicionarlo absolutamente con 
+     respecto a nuestro cuerpo*/
+    position: absolute;
+    top: 18vmin;
+}
+
+.left-eye-anteojo{
+   right: 0;
+}
+
+.mouth{
+    background-color: #000;
+    width: 13vmin;
+    height: 6vmin;
+    border-radius: 0 0 48% 48%/0 0 100% 100%;
+    /* position=absolute porque esta adentro del body
+    que tiene relativa↓↓ */
+    position: absolute;
+    top: 35vmin;
+    left: 18.5vmin;
+}
+.teeth{
+    /* le damos esta position porque si este div "teeth" 
+    se mueve, entonces los dientes "t1,t2 y t3" tambien ↓*/
+    position: absolute;
+    top: 35vmin;
+    left: 18.5vmin;
+    /* necesitamos que los dientes esten uno a la par del otro
+    entonces usamos el display:flex ↓*/
+    display: flex;
+    /* para que los div "t1,t2 yt3" se posicionen 
+    adelante de la boca negra usamos esto ↓↓ */
+    z-index: 3;
+}
+
+.t1, .t2, .t3, .t4{
+    background-color: white;
+    width: 3.25vmin;
+    height: 1.6vmin;
+    border-radius: 0 0 48% 48% / 10% 10% 45% 45%;
+}
+
+.left-boton, .right-boton{
+    background-color: #a06545;
+    width: 4vmin;
+    height: 4vmin;
+    border-radius: 50%;
+    /* le damos esta position porque si estos div 
+    se mueven, entonces los div hijos tambien ↓ */
+    position: absolute;
+    top: 43vmin;
+    /* lo posisionamos delante ↓ */
+    z-index:3;
+    /* Sombra marron abajo de los botones lo hacemos 
+    con esto ↓ */
+    border-bottom: 1vmin solid #6a4530 ;
+}
+.left-boton{
+    left: 12vmin;
+}
+.right-boton{
+    right: 12vmin;
+}
+
+/* PIERNAS */
+.legs{
+    display: flex;
+}
+.left-leg, .right-leg{
+    background-color: #436884;
+    width: 10vmin;
+    height: 12vmin;
+    /* al tener relativo, las piernas se van a mover con 
+    respecto al div minion */
+    position: relative;
+    /* se va a mover 20vmin desde la base del div minion
+    hacia arriba */
+    bottom: 5vmin;
+    /* vamos a trasladar las piernas por encima de los shoes */
+    z-index: 2;
+}
+.left-leg{
+    left: 12vmin;
+}
+.right-leg{
+    left: 19.2vmin;
+}
+
+    /* ZAPATOS */
+.shoes{
+    display: flex;
+}
+.left-shoe, .right-shoe{
+    background-color: #000;
+    width: 12vmin;
+    height: 10vmin;
+    border-radius: 88% 12% 70% 30%/ 71% 71% 29% 29%;
+    position: relative;
+    bottom: 8.7vmin;
+}
+.left-shoe{
+    left: 10.1vmin;
+}
+.right-shoe{
+    left: 17.1vmin;
+    /* Vamos a invertirlo en la direccion X ↓ */
+    transform: scaleX(-1);
+}
+
+/* MANOS */
+
+.manos{
+    display: flex;
+}
+
+.left-brazo, .right-brazo{
+    background-color: #f3bc54;
+    width:5vmin;
+    height:20vmin;
+    position: relative;
+    bottom: 56vmin;
+}
+.left-brazo{
+    right: 5.5vmin;
+    transform: rotateZ(40deg);
+    z-index:1;
+}
+.right-brazo{
+    left: 45.5vmin;
+    transform: rotateZ(-40deg);
+    z-index:1;
+}
+
+/* PALMS */
+
+.left-palm, .right-palm{
+    background-color: #000;
+    width:6vmin;
+    height:7vmin;
+    position: absolute;
+    border-radius: 10%;
+    bottom: 0vmin;
+    left: -0.7vmin;
+}
+.left-palm{
+    transform: rotateZ(0deg);
+    /* z-index:3; */
+}
+.right-palm{
+    transform: rotateZ(0deg);
+    /* z-index:3; */
+}
+
+/* DEDOS */
+.dedo1, .dedo2, .dedo3{
+    background-color: #000;
+    width:3vmin;
+    height:5vmin;
+    position: absolute;
+    border-radius: 20%;
+    
+}
+
+.dedo1{
+    bottom: -3vmin;
+    left: 3.5vmin;
+    transform: rotate(-24deg);
+    
+}
+.dedo2{
+    left: 1vmin;
+    bottom: -5vmin;
+}
+.dedo3{
+    bottom: -3vmin;
+    left: -1.6vmin;
+    transform: rotate(19deg);
+}
+
+/* BOLSILLOS */
+.bolsillo-grande{
+    width: 20vmin;
+    height: 10vmin;
+    border-radius: 0 0 50% 50%;
+    border: 0.5vmin solid #1a2934;
+    border-bottom: 0.2vmin;
+    position: absolute;
+    top:50vmin;
+    left:15vmin;
+    z-index: 3;
+}
+
+.left-bolsillo, .right-bolsillo{
+    width: 8vmin;
+    height: 2.5vmin;
+    border-radius:0 0 50% 50%;
+    border: 0.4vmin solid #1a2934;
+    position: absolute;
+    top: 50vmin;
+    z-index:3;    
+}
+.left-bolsillo{ 
+    left: 1vmin;
+} 
+.right-bolsillo{
+    right: 1vmin;
+}
+
+/* volvemos a llamar al body para decir "debordamiento OCULTO"↓ */
+.body{
+    overflow: hidden;
+}
+
+/* BOTON */
+.boton2{
+    width: 11vmin;
+    height: 4vmin;
+    font-family: Roboto, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 20vmin;
+}
